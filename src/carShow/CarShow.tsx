@@ -9,10 +9,8 @@ const CarShow = () => {
 
       <mesh>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="red" />
+        <meshBasicMaterial color="red" />
       </mesh>
-
-      <ambientLight intensity={0.5} />
     </>
   );
 };
