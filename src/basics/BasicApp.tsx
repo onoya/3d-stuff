@@ -1,7 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import MyCanvas from './MyCanvas';
-import './App.css';
 
 /**
  * Three js, React Three Fiber, React Three Drei Tutorial 2022
