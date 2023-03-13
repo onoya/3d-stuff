@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { Car } from './Car';
-import { angleToRadians } from './utils/angle';
+import { angleToRadians } from './angle';
 
 function MyCanvas() {
   // Code to move the camera around
