@@ -1,5 +1,12 @@
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import {
+  CubeCamera,
+  Environment,
+  OrbitControls,
+  PerspectiveCamera,
+} from '@react-three/drei';
 import Ground from './Ground';
+import Car from './Car';
+import Rings from './Rings';
 
 const CarShow = () => {
   return (
@@ -9,6 +16,20 @@ const CarShow = () => {
       <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
 
       <color args={[0, 0, 0]} attach="background" />
+
+      {/* Captures the surrounding */}
+      <CubeCamera resolution={256} frames={Infinity}>
+        {/* @ts-ignore */}
+        {(texture) => (
+          <>
+            <Environment map={texture} />
+            {/* By placing the car inside, it gets excluded */}
+            <Car />
+          </>
+        )}
+      </CubeCamera>
+
+      <Rings />
 
       <spotLight
         color={[1, 0.25, 0.7]}
