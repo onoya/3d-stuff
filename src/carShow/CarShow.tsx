@@ -7,6 +7,14 @@ import {
 import Ground from './Ground';
 import Car from './Car';
 import Rings from './Rings';
+import Boxes from './Boxes';
+import {
+  Bloom,
+  ChromaticAberration,
+  EffectComposer,
+} from '@react-three/postprocessing';
+import { BlendFunction } from 'postprocessing';
+import { Vector2 } from 'three';
 
 const CarShow = () => {
   return (
@@ -30,6 +38,7 @@ const CarShow = () => {
       </CubeCamera>
 
       <Rings />
+      <Boxes />
 
       <spotLight
         color={[1, 0.25, 0.7]}
@@ -52,6 +61,22 @@ const CarShow = () => {
       />
 
       <Ground />
+
+      <EffectComposer>
+        <Bloom
+          blendFunction={BlendFunction.ADD}
+          intensity={1.3}
+          width={300}
+          height={300}
+          kernelSize={5}
+          luminanceThreshold={0.15} // luminance threshold. Raise this value to mask out darker elements in the scene.
+          luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+        />
+        <ChromaticAberration
+          blendFunction={BlendFunction.NORMAL}
+          offset={new Vector2(0.0005, 0.0012)}
+        />
+      </EffectComposer>
     </>
   );
 };
