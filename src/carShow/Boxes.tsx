@@ -8,12 +8,13 @@ interface BoxProps {
 
 const Box: FC<BoxProps> = ({ color }) => {
   const box = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
+  const time = useRef(0);
   const [xRotSpeed] = useState(() => Math.random());
   const [yRotSpeed] = useState(() => Math.random());
   const [scale] = useState(() => Math.pow(Math.random(), 2.0) * 0.5 + 0.05);
-  const [position, setPosition] = useState<Vector3>(resetPosition());
+  const [position, setPosition] = useState<Vector3>(getInitialPosition());
 
-  function resetPosition() {
+  function getInitialPosition() {
     let v = new Vector3(
       (Math.random() * 2 - 1) * 3,
       Math.random() * 2.5 + 0.1,
@@ -25,10 +26,32 @@ const Box: FC<BoxProps> = ({ color }) => {
     return v;
   }
 
+  function resetPosition() {
+    let v = new Vector3(
+      (Math.random() * 2 - 1) * 3,
+      Math.random() * 2.5 + 0.1,
+      Math.random() * 10 + 10
+    );
+    if (v.x < 0) v.x -= 1.75;
+    if (v.x > 0) v.x += 1.75;
+
+    setPosition(v);
+  }
+
+  // Animate the box
   useFrame((state, delta) => {
     if (!box.current) return;
 
-    box.current.position.set(position.x, position.y, position.z);
+    time.current += delta * 1.2;
+    let newZ = position.z - time.current;
+
+    // Reset position when it goes off screen
+    if (newZ < -10) {
+      resetPosition();
+      time.current = 0;
+    }
+
+    box.current.position.set(position.x, position.y, newZ);
     box.current.rotation.x += delta * xRotSpeed;
     box.current.rotation.y += delta * yRotSpeed;
   });

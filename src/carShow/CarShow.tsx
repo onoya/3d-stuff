@@ -15,6 +15,7 @@ import {
 } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
 import { Vector2 } from 'three';
+import FloatingGrid from './FloatingGrid';
 
 const CarShow = () => {
   return (
@@ -39,6 +40,7 @@ const CarShow = () => {
 
       <Rings />
       <Boxes />
+      <FloatingGrid />
 
       <spotLight
         color={[1, 0.25, 0.7]}
