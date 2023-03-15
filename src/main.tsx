@@ -9,15 +9,15 @@ import OpenWorldGame from './openWorld';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <BasicApp />,
+    element: <OpenWorldGame />,
   },
   {
     path: '/car-show',
     element: <CarShowApp />,
   },
   {
-    path: '/open-world',
-    element: <OpenWorldGame />,
+    path: '/basic',
+    element: <BasicApp />,
   },
 ]);
 
