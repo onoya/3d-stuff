@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import BasicApp from './basics/BasicApp';
 import CarShowApp from './carShow/CarShowApp';
 import './globals.css';
+import OpenWorldGame from './openWorld';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: '/car-show',
     element: <CarShowApp />,
+  },
+  {
+    path: '/open-world',
+    element: <OpenWorldGame />,
   },
 ]);
 
