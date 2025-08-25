@@ -35,8 +35,8 @@ type GLTFResult = GLTF & {
   };
 };
 
-type ActionName = 'Armature|mixamo.com|Layer0';
-type GLTFActions = Record<ActionName, THREE.AnimationAction>;
+// type ActionName = 'Armature|mixamo.com|Layer0';
+// type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 export function Astronaut(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null);
@@ -47,6 +47,7 @@ export function Astronaut(props: JSX.IntrinsicElements['group']) {
 
   useEffect(() => {
     actions[names[0]]?.reset().fadeIn(0.5).play();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

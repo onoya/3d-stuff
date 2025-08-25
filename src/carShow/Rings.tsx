@@ -14,16 +14,16 @@ const Rings = () => {
   );
 
   useFrame((state) => {
-    let elapsed = state.clock.getElapsedTime();
+    const elapsed = state.clock.getElapsedTime();
 
     for (let i = 0; i < itemsRef.current.length; i++) {
-      let mesh = itemsRef.current[i];
+      const mesh = itemsRef.current[i];
       // [-7, 6]
       // let z = (i - 7) * 3.5;
-      let z = (i - 7) * 3.5 + ((elapsed * 0.4) % 3.5) * 2;
+      const z = (i - 7) * 3.5 + ((elapsed * 0.4) % 3.5) * 2;
       mesh.position.set(0, 0, -z);
       // Add space between rings
-      let dist = Math.abs(z);
+      const dist = Math.abs(z);
       mesh.scale.set(1 - dist * 0.04, 1 - dist * 0.04, 1 - dist * 0.04);
 
       // Fade out the color of the rings

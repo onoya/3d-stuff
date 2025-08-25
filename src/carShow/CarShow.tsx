@@ -28,6 +28,7 @@ const CarShow = () => {
 
       {/* Captures the surrounding */}
       <CubeCamera resolution={256} frames={Infinity}>
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
         {/* @ts-ignore */}
         {(texture) => (
           <>

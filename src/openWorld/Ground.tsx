@@ -18,10 +18,10 @@ const Ground = () => {
     });
 
     normal.encoding = LinearEncoding;
-  }, [normal, roughness]);
+  }, [normal, roughness, displacement, ao]);
 
-  useFrame((state, delta) => {
-    let t = -state.clock.getElapsedTime() * 0.058;
+  useFrame((state) => {
+    const t = -state.clock.getElapsedTime() * 0.058;
     roughness.offset.set(0, t);
     normal.offset.set(0, t);
     displacement.offset.set(0, t);

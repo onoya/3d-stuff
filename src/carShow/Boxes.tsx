@@ -15,7 +15,7 @@ const Box: FC<BoxProps> = ({ color }) => {
   const [position, setPosition] = useState<Vector3>(getInitialPosition());
 
   function getInitialPosition() {
-    let v = new Vector3(
+    const v = new Vector3(
       (Math.random() * 2 - 1) * 3,
       Math.random() * 2.5 + 0.1,
       (Math.random() * 2 - 1) * 15
@@ -27,7 +27,7 @@ const Box: FC<BoxProps> = ({ color }) => {
   }
 
   function resetPosition() {
-    let v = new Vector3(
+    const v = new Vector3(
       (Math.random() * 2 - 1) * 3,
       Math.random() * 2.5 + 0.1,
       Math.random() * 10 + 10
@@ -43,7 +43,7 @@ const Box: FC<BoxProps> = ({ color }) => {
     if (!box.current) return;
 
     time.current += delta * 1.2;
-    let newZ = position.z - time.current;
+    const newZ = position.z - time.current;
 
     // Reset position when it goes off screen
     if (newZ < -10) {
@@ -66,7 +66,7 @@ const Box: FC<BoxProps> = ({ color }) => {
 
 const Boxes: FC = () => {
   const [arr] = useState(() => {
-    let a = [];
+    const a = [];
     for (let i = 0; i < 100; i++) a.push(0);
     return a;
   });

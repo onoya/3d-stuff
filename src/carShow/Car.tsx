@@ -18,10 +18,10 @@ const Car = () => {
     });
   }, [gltf]);
 
-  useFrame((state, delta) => {
-    let t = state.clock.getElapsedTime();
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
 
-    let group = gltf.scene.children[0].children[0].children[0];
+    const group = gltf.scene.children[0].children[0].children[0];
     group.children[0].rotation.x = t * 2;
     group.children[2].rotation.x = t * 2;
     group.children[4].rotation.x = t * 2;

@@ -31,7 +31,7 @@ export function SolarPanel(props: JSX.IntrinsicElements['group']) {
   const [position] = useState<THREE.Vector3>(getInitialPosition());
 
   function getInitialPosition() {
-    let v = new THREE.Vector3(
+    const v = new THREE.Vector3(
       (Math.random() * 10 - 5) * 40,
       0,
       (Math.random() * 10 - 5) * 80
@@ -46,13 +46,13 @@ export function SolarPanel(props: JSX.IntrinsicElements['group']) {
     if (!solarPanel.current) return;
 
     time.current += delta * 1.5;
-    let newZ = position.z - time.current;
+    const newZ = position.z - time.current;
 
     solarPanel.current.position.set(position.x, position.y, newZ);
   });
 
   // random number between 1 - 5
-  const random = Math.floor(Math.random() * 5) + 1;
+  // const random = Math.floor(Math.random() * 5) + 1;
 
   return (
     <group ref={solarPanel} {...props} dispose={null} scale={0.3}>

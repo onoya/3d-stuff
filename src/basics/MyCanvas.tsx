@@ -15,7 +15,7 @@ function MyCanvas() {
   // Code to move the camera around
   const orbitControlsRef = useRef<OrbitControlsImpl>(null);
   useFrame((state) => {
-    if (!!orbitControlsRef.current) {
+    if (orbitControlsRef.current) {
       const { x, y } = state.mouse;
       orbitControlsRef.current.setAzimuthalAngle(-x * angleToRadians(45));
       orbitControlsRef.current.setPolarAngle((y + 1) * angleToRadians(90 - 30));
@@ -29,7 +29,7 @@ function MyCanvas() {
       null
     );
   useEffect(() => {
-    if (!!ballRef.current) {
+    if (ballRef.current) {
       const timeline = gsap.timeline();
 
       // x-axis motion
@@ -40,11 +40,15 @@ function MyCanvas() {
       });
 
       // y-axis motion
-      timeline.to(ballRef.current.position, {
-        y: 0.5,
-        duration: 1,
-        ease: 'bounce.out',
-      }, '<');
+      timeline.to(
+        ballRef.current.position,
+        {
+          y: 0.5,
+          duration: 1,
+          ease: 'bounce.out',
+        },
+        '<'
+      );
 
       // Altrernative way to bounce
       // const coefficient = 0.8;
