@@ -4,11 +4,11 @@ import CarShow from './CarShow';
 
 const CarShowApp = () => {
   return (
-    <Suspense fallback={null}>
-      <Canvas shadows>
+    <Canvas shadows>
+      <Suspense fallback={null}>
         <CarShow />
-      </Canvas>
-    </Suspense>
+      </Suspense>
+    </Canvas>
   );
 };
 export default CarShowApp;

@@ -108,10 +108,10 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Car(props: JSX.IntrinsicElements['group']) {
+export function Car(props: React.ComponentProps<'group'>) {
   const { nodes, materials } = useGLTF(
     '/models/car/model-transformed.glb'
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   return (
     <group
       {...props}

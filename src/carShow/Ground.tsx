@@ -1,7 +1,7 @@
 import { MeshReflectorMaterial } from '@react-three/drei';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { useEffect } from 'react';
-import { LinearEncoding, RepeatWrapping, TextureLoader, Vector2 } from 'three';
+import { RepeatWrapping, TextureLoader, Vector2 } from 'three';
 
 const Ground = () => {
   const [roughness, normal] = useLoader(TextureLoader, [
@@ -16,7 +16,6 @@ const Ground = () => {
       t.repeat.set(5, 5);
     });
 
-    normal.encoding = LinearEncoding;
   }, [normal, roughness]);
 
   useFrame((state) => {

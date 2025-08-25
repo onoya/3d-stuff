@@ -31,7 +31,7 @@ const Rings = () => {
       if (dist > 2) {
         colorScale = 1 - (Math.min(dist, 12) - 2) / 10;
       }
-      colorScale *= 0.5;
+      colorScale *= 2.5;
 
       // Alternate ring color
       if (mesh.material instanceof MeshStandardMaterial) {
@@ -50,7 +50,7 @@ const Rings = () => {
 
   return (
     <>
-      {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((v, i) => (
+      {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((_v, i) => (
         <mesh
           castShadow
           receiveShadow

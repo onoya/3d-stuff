@@ -1,6 +1,6 @@
 import { useFrame, useLoader } from '@react-three/fiber';
 import { useEffect } from 'react';
-import { LinearEncoding, RepeatWrapping, TextureLoader } from 'three';
+import { RepeatWrapping, TextureLoader } from 'three';
 
 const Ground = () => {
   const [roughness, normal, displacement, ao] = useLoader(TextureLoader, [
@@ -17,7 +17,10 @@ const Ground = () => {
       t.repeat.set(40, 40);
     });
 
-    normal.encoding = LinearEncoding;
+    // Set proper color spaces for Three.js v179+
+    normal.colorSpace = 'srgb-linear';
+    roughness.colorSpace = 'srgb-linear';
+    ao.colorSpace = 'srgb-linear';
   }, [normal, roughness, displacement, ao]);
 
   useFrame((state) => {

@@ -22,11 +22,11 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function SolarPanel(props: JSX.IntrinsicElements['group']) {
+export function SolarPanel(props: React.ComponentProps<'group'>) {
   const solarPanel = useRef<THREE.Group>(null);
   const { nodes, materials } = useGLTF(
     '/models/solar-panel/model-transformed.glb'
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   const time = useRef(0);
   const [position] = useState<THREE.Vector3>(getInitialPosition());
 
@@ -42,7 +42,7 @@ export function SolarPanel(props: JSX.IntrinsicElements['group']) {
     return v;
   }
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!solarPanel.current) return;
 
     time.current += delta * 1.5;

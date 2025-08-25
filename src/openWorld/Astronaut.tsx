@@ -38,11 +38,11 @@ type GLTFResult = GLTF & {
 // type ActionName = 'Armature|mixamo.com|Layer0';
 // type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
-export function Astronaut(props: JSX.IntrinsicElements['group']) {
+export function Astronaut(props: React.ComponentProps<'group'>) {
   const group = useRef<THREE.Group>(null);
   const { nodes, materials, animations } = useGLTF(
     '/models/astronaut/astronaut-transformed.glb'
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   const { actions, names } = useAnimations(animations, group);
 
   useEffect(() => {

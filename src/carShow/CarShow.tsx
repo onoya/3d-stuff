@@ -50,7 +50,7 @@ const CarShow = () => {
         penumbra={0.5}
         position={[5, 5, 0]}
         castShadow
-        shadowBias={-0.0001}
+        shadow-bias={-0.0001}
       />
 
       <spotLight

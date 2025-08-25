@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber';
-import { FC, useRef, useState } from 'react';
+import { type FC, useRef, useState } from 'react';
 import { BufferGeometry, Material, Mesh, Vector3 } from 'three';
 
 interface BoxProps {
@@ -39,7 +39,7 @@ const Box: FC<BoxProps> = ({ color }) => {
   }
 
   // Animate the box
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!box.current) return;
 
     time.current += delta * 1.2;

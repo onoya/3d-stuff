@@ -4,11 +4,11 @@ import Game from './Game';
 
 const OpenWorldGame = () => {
   return (
-    <Suspense fallback={null}>
-      <Canvas shadows>
+    <Canvas shadows>
+      <Suspense fallback={null}>
         <Game />
-      </Canvas>
-    </Suspense>
+      </Suspense>
+    </Canvas>
   );
 };
 export default OpenWorldGame;
