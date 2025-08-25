@@ -9,7 +9,7 @@ Title: FREE 1975 Porsche 911 (930) Turbo
 
 import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
-import { GLTF } from 'three-stdlib';
+import { type GLTF } from 'three-stdlib';
 import { angleToRadians } from './angle';
 
 type GLTFResult = GLTF & {

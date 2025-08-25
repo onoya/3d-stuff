@@ -4,9 +4,9 @@ Command: npx gltfjsx@6.1.4 public/models/astronaut/astronaut.gltf --types -T --s
 */
 
 import * as THREE from 'three';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import { GLTF } from 'three-stdlib';
+import { type GLTF } from 'three-stdlib';
 
 type GLTFResult = GLTF & {
   nodes: {

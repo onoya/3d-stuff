@@ -8,9 +8,9 @@ Title: Painel Solar
 */
 
 import * as THREE from 'three';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { GLTF } from 'three-stdlib';
+import { type GLTF } from 'three-stdlib';
 import { useFrame } from '@react-three/fiber';
 
 type GLTFResult = GLTF & {
