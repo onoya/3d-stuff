@@ -4,9 +4,9 @@ import {
   PerspectiveCamera,
   Stars,
 } from '@react-three/drei';
-import Ground from './Ground';
-import { Astronaut } from './Astronaut';
 import { BackSide } from 'three';
+import { Astronaut } from './Astronaut';
+import Ground from './Ground';
 import { SolarPanel } from './SolarPanel';
 
 const Game = () => {

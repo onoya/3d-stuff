@@ -2,6 +2,13 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { useEffect } from 'react';
 import { RepeatWrapping, TextureLoader } from 'three';
 
+useLoader.preload(TextureLoader, [
+  '/textures/mars/terrain-roughness.jpeg',
+  '/textures/mars/terrain-normal.jpeg',
+  '/textures/mars/terrain-displacement.jpeg',
+  '/textures/mars/terrain-ao.jpeg',
+]);
+
 const Ground = () => {
   const [roughness, normal, displacement, ao] = useLoader(TextureLoader, [
     '/textures/mars/terrain-roughness.jpeg',
